@@ -17,7 +17,8 @@ package-lock.json
 extraction_*.json
 exports/
 
-# Private schemas (your intellectual property - stays local)
+# Private schemas and project-specific documents (your IP - stays local)
 schemas-private.js
 codebook/wsacs-fields.json
 codebook/rodgers-fields.json
+CONCEPT_ANALYSIS_WORKPLAN.md
