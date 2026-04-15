@@ -1,8 +1,8 @@
-# Build Something and Break It: A Coding Workshop for Nurse Researchers
+# Build Something and Break It: A Coding Workshop for People Who Don't Code (Yet)
 
 **Learn to build your own web tools by building your own web tool.**
 
-A self-paced workshop for nurses and health researchers who've never written a line of code. Work at your own pace, meet up regularly to share progress, troubleshoot together, and cheer each other on.
+A self-paced workshop for anyone who's never written a line of code: researchers, clinicians, educators, students, or anyone who's ever thought "someone should make an app for this." Work at your own pace, meet up regularly to share progress, troubleshoot together, and cheer each other on.
 
 ---
 
@@ -12,7 +12,7 @@ You probably have a workflow that frustrates you. Maybe it's a clunky spreadshee
 
 This workshop teaches you to be the someone.
 
-You'll learn the same skills that every web developer uses (HTML, CSS, JavaScript), but instead of building generic exercises, you'll build a tool that solves a real problem in your own practice. The facilitator shares their project as a case study, but the goal is yours: by the end of this workshop, you'll have something you built, something that works, and something you understand well enough to keep improving.
+You'll learn the same skills that every web developer uses (HTML, CSS, JavaScript), but instead of building generic exercises, you'll build a tool that solves a real problem in your own work. The facilitator shares their project as a case study, but the goal is yours: by the end of this workshop, you'll have something you built, something that works, and something you understand well enough to keep improving.
 
 ---
 
@@ -43,17 +43,27 @@ Key takeaway: every tool you use was built by someone who didn't know how to bui
 
 ### Part B: Find your problem
 
-Think about your work. What do you do repeatedly that's tedious, error-prone, or frustrating? Some examples from nursing and health research:
+Think about your work. What do you do repeatedly that's tedious, error-prone, or frustrating? Some examples:
 
+**Health and research:**
 - A patient education tracker that shows which topics have been covered
 - A clinical shift handover template that structures the right information
-- A study log for tracking your research activities and hours
-- A personal CPD (continuing professional development) tracker
-- A medication interaction quick-reference tool
-- A consent form checklist for research protocols
+- A study log for tracking research activities and hours
+- A CPD (continuing professional development) tracker
 - A journal club organiser that tracks articles, discussants, and key takeaways
-- An assessment scoring tool that calculates results automatically
-- A resource directory for a specific patient population
+- A consent form checklist for research protocols
+
+**Education:**
+- A course planning tool that maps learning outcomes to assessments
+- A student feedback organiser
+- A resource library with filters by topic and level
+
+**Any field:**
+- A project tracker with deadlines and status updates
+- A meeting notes template that structures decisions and action items
+- A personal budget calculator
+- A recipe organiser (because why not)
+- An inventory tracker for supplies or equipment
 
 You don't need a fully formed idea. You need a frustration.
 
@@ -246,7 +256,7 @@ You'll hit a point where you think "I want to do X but I don't know how." Here's
 2. Look for answers on MDN (Mozilla Developer Network) or Stack Overflow
 3. Try it. Break it. Read the error. Try again
 4. Ask your group. Someone may have solved the same problem
-5. Ask an AI assistant. Describe what you're trying to do and what's not working. AI is actually great at debugging
+5. Ask an AI assistant. Describe what you're trying to do and what's not working. AI is good at debugging and explaining code, even if you're cautious about using it for other things
 
 ### Deliverable
 A tool that does something genuinely useful for you. It doesn't have to be perfect. It has to work.
@@ -289,8 +299,8 @@ These are the same skills used to build every website and web app you've ever us
 
 ### Keep going
 - Add features to your tool as you discover what's missing
-- Learn React for more complex interfaces (see the Learning Path in ReviewForge's docs)
-- Explore Claude Code for AI-assisted development
+- Learn a framework like React for more complex interfaces
+- Explore AI-assisted coding tools like Claude Code
 - Build another tool for a different problem
 - Teach someone else what you learned
 
@@ -314,6 +324,6 @@ These are the same skills used to build every website and web app you've ever us
 
 ## Acknowledgements
 
-This workshop was built on the belief that nurses and health researchers shouldn't have to wait for developers to build the tools they need. You understand your problems better than any developer ever will. All you need are the building blocks. Now you have them.
+This workshop was built on the belief that you shouldn't have to wait for developers to build the tools you need. You understand your problems better than any developer ever will. All you need are the building blocks. Now you have them.
 
 You don't need permission to learn this. You just need to start.
