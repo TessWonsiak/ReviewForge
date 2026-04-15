@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewForge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="topbar-left">
+            <div class="logo-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+            </div>
+            <h1 class="logo-text">ReviewForge</h1>
+            <select id="schema-switcher" class="schema-switcher">
+                <option value="">Loading schemas...</option>
+            </select>
+        </div>
+        <div class="topbar-right">
+            <div class="article-nav">
+                <button id="prev-article" class="btn-icon" title="Previous article" disabled>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <span id="article-indicator" class="article-indicator">No articles yet</span>
+                <button id="next-article" class="btn-icon" title="Next article" disabled>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+            </div>
+            <button id="import-article" class="btn btn-outline">Paste import</button>
+            <button id="new-article" class="btn btn-success">+ New article</button>
+        </div>
+    </header>
+
+    <div id="import-panel" class="import-panel" style="display: none;">
+        <div class="import-panel-inner">
+            <label class="import-label">Paste JSON from Claude, then click Import (or Ctrl+Enter):</label>
+            <textarea id="import-textarea" class="import-textarea" rows="6" placeholder='Paste the JSON object here...'></textarea>
+            <div class="import-actions">
+                <button id="import-cancel" class="btn btn-outline btn-small">Cancel</button>
+                <button id="import-go" class="btn btn-success btn-small">Import article</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-heading">Articles</h3>
+                <div id="article-list" class="article-list">
+                    <p class="empty-state">Select a schema to get started</p>
+                </div>
+            </div>
+            <div class="sidebar-section" id="filters-section" style="display: none;">
+                <h3 class="sidebar-heading">Filters</h3>
+                <div id="filters-container"></div>
+                <button id="clear-filters" class="btn btn-outline btn-small">Clear filters</button>
+            </div>
+        </aside>
+
+        <div class="extraction-panel" id="extraction-panel">
+            <div id="welcome-screen" class="welcome-screen">
+                <div class="welcome-content">
+                    <h2>Welcome to ReviewForge</h2>
+                    <p>Select a review type from the dropdown above to get started,<br>
+                    or create a new article to begin extracting.</p>
+                    <div class="welcome-schemas">
+                        <div class="welcome-card" data-schema="wsacs">
+                            <h3>WSACS Systematic Review</h3>
+                            <p>57-column extraction for IAH/ACS clinical practice guidelines. GRADE methodology.</p>
+                        </div>
+                        <div class="welcome-card" data-schema="rodgers">
+                            <h3>Rodgers' Concept Analysis</h3>
+                            <p>Mental suffering in the context of MAiD. Evolutionary concept analysis method.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="form-container" class="form-container" style="display: none;"></div>
+        </div>
+
+        <aside class="memo-panel" id="memo-panel" style="display: none;">
+            <div class="memo-header">
+                <h3>Analytic memo</h3>
+                <span class="memo-hint">Your researcher voice. Write freely.</span>
+            </div>
+            <textarea id="memo-textarea" class="memo-textarea" placeholder="What surprised you? What contradictions do you notice? How does this connect to other sources you've read?"></textarea>
+        </aside>
+    </main>
+
+    <footer class="statusbar">
+        <span id="status-message">Ready</span>
+        <span id="save-indicator"></span>
+    </footer>
+
+    <!-- Scripts: schemas first, then app logic, then import feature -->
+    <script src="schemas.js"></script>
+    <script src="app.js"></script>
+    <script src="import.js"></script>
+</body>
+</html>

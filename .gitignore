@@ -1,0 +1,18 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node (for future use)
+node_modules/
+package-lock.json
+
+# Personal extraction data (never commit research data!)
+extraction_*.json
+exports/

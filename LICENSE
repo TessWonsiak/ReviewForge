@@ -1,0 +1,30 @@
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright (C) 2026 Tess Wonsiak
+
+ReviewForge - Schema-driven data extraction for systematic reviews and concept analysis.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+---
+
+ADDITIONAL TERMS:
+
+The extraction schemas included in the codebook/ directory are provided
+as examples. They represent the intellectual work of their creators and
+are shared under the same GPL-3.0 terms. If you create derivative schemas
+based on these examples, attribution is required.
+
+For questions about licensing or commercial use, contact the author.

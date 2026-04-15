@@ -1,0 +1,70 @@
+{
+    "schema_name": "Example: Scoping Review",
+    "schema_version": "1.0",
+    "description": "A generic scoping review extraction schema following Arksey & O'Malley (2005) and JBI methodology. Use this as a starting point for your own review, or as a reference for how ReviewForge schemas work.",
+
+    "field_groups": [
+        {
+            "group_name": "Citation Details",
+            "description": "Bibliographic information",
+            "fields": [
+                { "field_id": "authors", "label": "Author(s)", "type": "free_text", "required": true, "help_text": "Last name, initials. Multiple authors separated by semicolons." },
+                { "field_id": "year", "label": "Year", "type": "numeric", "required": true },
+                { "field_id": "title", "label": "Title", "type": "free_text", "required": true },
+                { "field_id": "journal", "label": "Journal / Source", "type": "free_text", "required": true },
+                { "field_id": "country", "label": "Country", "type": "free_text", "required": false },
+                { "field_id": "doi", "label": "DOI", "type": "free_text", "required": false }
+            ]
+        },
+        {
+            "group_name": "Study Characteristics",
+            "description": "Design, population, and context",
+            "fields": [
+                { "field_id": "study_design", "label": "Study Design", "type": "coded_single", "required": true,
+                    "options": ["Qualitative", "Quantitative", "Mixed Methods", "Theoretical / Conceptual", "Review", "Case Study", "Policy Analysis", "Other"]
+                },
+                { "field_id": "population", "label": "Population / Participants", "type": "free_text_rich", "required": false, "help_text": "Who was studied? Sample size, demographics, setting." },
+                { "field_id": "context", "label": "Context / Setting", "type": "free_text_rich", "required": false, "help_text": "Where and when was this study conducted? What is the relevant policy, cultural, or institutional context?" },
+                { "field_id": "aim", "label": "Aim / Research Question", "type": "free_text_rich", "required": true, "help_text": "What was the study trying to find out?" }
+            ]
+        },
+        {
+            "group_name": "Key Findings",
+            "description": "What did this study find?",
+            "fields": [
+                { "field_id": "findings_summary", "label": "Summary of Findings", "type": "free_text_rich", "required": true, "help_text": "Summarize the main findings relevant to your review question." },
+                { "field_id": "themes", "label": "Themes / Categories", "type": "free_text_rich", "required": false, "help_text": "Key themes, categories, or constructs identified. List each on a new line." },
+                { "field_id": "key_quotes", "label": "Key Quotes", "type": "free_text_rich", "required": false, "help_text": "Direct quotes worth noting, with page numbers." }
+            ]
+        },
+        {
+            "group_name": "Relevance and Quality",
+            "description": "How does this source relate to your review?",
+            "fields": [
+                { "field_id": "relevance", "label": "Relevance to Review Question", "type": "coded_single", "required": true,
+                    "options": [
+                        { "code": "HIGH", "label": "High: Directly addresses the review question" },
+                        { "code": "MODERATE", "label": "Moderate: Partially relevant or tangentially related" },
+                        { "code": "LOW", "label": "Low: Peripherally relevant, included for context" }
+                    ]
+                },
+                { "field_id": "limitations", "label": "Limitations / Notes", "type": "free_text", "required": false, "help_text": "Any limitations, biases, or methodological concerns." }
+            ]
+        },
+        {
+            "group_name": "Reviewer Notes",
+            "description": "Your observations",
+            "fields": [
+                { "field_id": "reviewer_memo", "label": "Reviewer Memo", "type": "free_text_rich", "required": false, "prominent": true,
+                    "help_text": "Your thoughts on this source. What stands out? How does it connect to other sources? What questions does it raise?"
+                },
+                { "field_id": "status", "label": "Extraction Status", "type": "coded_single", "required": true, "default": "Not Started",
+                    "options": ["Not Started", "In Progress", "Complete", "Needs Revisit"]
+                },
+                { "field_id": "date_extracted", "label": "Date Extracted", "type": "date", "required": false }
+            ]
+        }
+    ],
+
+    "filterable_fields": ["study_design", "relevance", "country", "status"]
+}

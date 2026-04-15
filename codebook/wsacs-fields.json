@@ -1,0 +1,230 @@
+{
+    "_comment": "WSACS extraction schema as structured data. This file defines all 57 columns, their types, and valid dropdown values. When you build the AI extraction pipeline, this is what the API will validate against.",
+    
+    "project": "WSACS 2026 Clinical Practice Guideline Systematic Review",
+    "total_columns": 57,
+    "total_articles": 410,
+    
+    "coded_fields": {
+        "8": {
+            "header": "Country",
+            "list_name": "COUNTRY",
+            "values": [
+                "Australia", "Austria", "Belgium", "Brazil", "Canada", "Chile",
+                "China", "Colombia", "Croatia", "Czech Republic", "Denmark",
+                "Egypt", "Finland", "France", "Germany", "Greece", "Hungary",
+                "India", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Japan",
+                "Jordan", "Korea", "Malaysia", "Mexico", "Multiple",
+                "Netherlands", "New Zealand", "Nigeria", "Norway", "Pakistan",
+                "Poland", "Portugal", "Romania", "Russia", "Saudi Arabia",
+                "Singapore", "South Africa", "Spain", "Sweden", "Switzerland",
+                "Taiwan", "Thailand", "Turkey", "UAE", "UK", "USA", "Other"
+            ],
+            "notes": "Use 'Multiple' for multicentre across countries. Use 'Other' if not on list and note actual country in col 57."
+        },
+        "10": {
+            "header": "Study Design",
+            "list_name": "STUDY_DESIGN",
+            "values": [
+                "Randomized Controlled Trial",
+                "Prospective Cohort",
+                "Retrospective Cohort",
+                "Case-Control",
+                "Cross-Sectional",
+                "Before-After",
+                "Case Series",
+                "Case Report",
+                "Other"
+            ],
+            "notes": "Use 'Other' for pooled analyses, secondary analyses, etc."
+        },
+        "11": {
+            "header": "WSACS Primary Domain",
+            "list_name": "DOMAINS",
+            "values": [
+                "1. Definition",
+                "2. Pathophysiology: IAP",
+                "3. Recognition/Awareness",
+                "4. Risk Factors",
+                "5. Open Abdomen",
+                "6. Pathophysiology: Organ Function",
+                "7. Measurement and Monitoring",
+                "8. IAH/ACS Classification",
+                "9. Surgical Management",
+                "10. Resuscitation",
+                "11. Nonsurgical Management",
+                "12. Outcomes"
+            ],
+            "notes": "Use full code including number prefix."
+        },
+        "12": {
+            "header": "WSACS Secondary Domain",
+            "list_name": "DOMAINS",
+            "values": "same as column 11",
+            "notes": "May be empty if only one domain applies."
+        },
+        "13": {
+            "header": "WSACS Other Domain",
+            "list_name": "DOMAINS",
+            "values": "same as column 11",
+            "notes": "May be empty."
+        },
+        "15": {
+            "header": "Clinical Area",
+            "list_name": "CLINICAL_AREA",
+            "values": [
+                "ICU - Surgical",
+                "ICU - Medical",
+                "ICU - General / Mixed",
+                "ICU - Trauma",
+                "ICU - Burns",
+                "Emergency Department",
+                "Operating Room",
+                "General Ward",
+                "Other"
+            ]
+        },
+        "16": {
+            "header": "Diagnosis / Treatments",
+            "list_name": "DIAGNOSIS_TREATMENTS",
+            "values": [
+                "Abdominal Surgery",
+                "Trauma",
+                "Burns",
+                "Pancreatitis",
+                "Liver Transplant",
+                "Sepsis",
+                "Post-Cardiac Surgery",
+                "ECMO",
+                "Mixed ICU Population",
+                "Other"
+            ]
+        },
+        "23": {
+            "header": "IAP Intermittent/Continuous",
+            "list_name": "IAP_TIMING",
+            "values": [
+                "Continuous",
+                "Intermittent",
+                "Not specified",
+                "Not measured"
+            ]
+        },
+        "24": {
+            "header": "IAP Method",
+            "list_name": "IAP_METHOD",
+            "values": [
+                "Intravesical (Bladder)",
+                "Intragastric",
+                "Direct Measurement",
+                "Not Measured",
+                "Other"
+            ],
+            "notes": "Dropdown value ONLY. Protocol details (instillation volume, zero reference, position) go in col 57."
+        },
+        "25": {
+            "header": "Intervention Type",
+            "list_name": "INTERVENTION_TYPE",
+            "values": [
+                "No Intervention (Observational)",
+                "Surgical Decompression",
+                "Medical Management",
+                "Percutaneous Drainage",
+                "Neuromuscular Blockade",
+                "Nasogastric Decompression",
+                "Fluid Resuscitation Protocol",
+                "Other"
+            ],
+            "notes": "Use 'No Intervention (Observational)' for observational studies."
+        },
+        "27": {
+            "header": "Comparator",
+            "list_name": "COMPARATOR_GROUP",
+            "values": [
+                "No Comparator",
+                "Standard Care",
+                "Exposure-Based Groups",
+                "Outcome-Based Groups",
+                "Historical Controls",
+                "Other"
+            ],
+            "notes": "Use 'Exposure-Based Groups' for IAH vs no-IAH; 'Outcome-Based Groups' for ACS vs no-ACS."
+        },
+        "29": {
+            "header": "Primary Outcome",
+            "list_name": "PRIMARY_OUTCOME",
+            "values": [
+                "1.IAH Incidence/Prevalence",
+                "2.ACS Incidence/Prevalence",
+                "3.IAP Values",
+                "4.Mortality",
+                "5.Length of Stay",
+                "6.Organ Dysfunction/Failure",
+                "7.Multiple Primary Outcomes"
+            ],
+            "notes": "Use numbered codes. The AI frequently misses 'Multiple Primary Outcomes' (0/18 in validation)."
+        }
+    },
+    
+    "free_text_fields": {
+        "3": "Authors",
+        "4": "Title",
+        "5": "Year",
+        "6": "Journal",
+        "7": "DOI",
+        "9": "Research Question/Aim",
+        "14": "Participant Demographic",
+        "17": "Inclusion Criteria",
+        "18": "Exclusion Criteria",
+        "19": "Study N",
+        "20": "Age, mean",
+        "21": "Male, n",
+        "22": "Female, n",
+        "26": "Intervention Description",
+        "28": "Comparator Description",
+        "30": "Time Points",
+        "31": "Treatment Arm #1 n",
+        "32": "Treatment Arm #1 Findings",
+        "33": "Treatment Arm #2 n",
+        "34": "Treatment Arm #2 Findings",
+        "35": "Control Group n",
+        "36": "Control Group Findings",
+        "37": "Effect Estimate",
+        "38": "Secondary Outcomes",
+        "51": "Key Findings Summary",
+        "57": "Reviewer Comments"
+    },
+    
+    "secondary_outcome_fields": {
+        "39": "S1: IAH Incidence",
+        "40": "S2: ACS Incidence",
+        "41": "S3: ICU Mortality",
+        "42": "S4: Hospital/ICU Mortality <28 Days",
+        "43": "S5: Mortality >28 Days",
+        "44": "S6: Organ Dysfunction",
+        "45": "S7: MV Duration",
+        "46": "S8: ICU LOS",
+        "47": "S9: Hospital LOS",
+        "48": "S10",
+        "49": "S11",
+        "50": "S12"
+    },
+    
+    "evidence_level_fields": {
+        "52": "Level I (Experimental)",
+        "53": "Level II (Quasi-experimental)",
+        "54": "Level III (Analytical observational)",
+        "55": "Level IV (Descriptive observational)",
+        "56": "Level V (Expert opinion)",
+        "rule": "Exactly ONE 'X' across columns 52-56 per article."
+    },
+    
+    "known_ai_weaknesses": {
+        "domain_assignment": "Secondary (50%) and tertiary (28%) domains are unreliable. AI uses keyword matching rather than understanding study purpose.",
+        "primary_outcome": "56% accuracy. AI never uses 'Multiple Primary Outcomes' (0/18). Picks single prominent outcome.",
+        "iap_method": "33% accuracy. AI adds protocol details to dropdown value instead of using code only.",
+        "treatment_arms": "AI splits observational cohorts into treatment arms. Exposure-based subgroups are not intervention arms.",
+        "excluded_articles": "AI fails to flag articles for exclusion (reviews, pediatric populations).",
+        "mortality_placement": "Cross-reference hospital LOS and study duration before placing in >28 day column."
+    }
+}
