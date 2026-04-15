@@ -4,101 +4,107 @@ What we're building, in what order, and why.
 
 ---
 
-## v0.1: Static prototype (DONE)
-**What it is:** A working HTML page with hardcoded data from Khanna et al. 2023.
-- Side-by-side extraction form and source text
-- Coded dropdowns enforcing Code Book values
-- Flagged field indicators with reviewer workflow
-- Approve/save button with validation check
+## Current Release: v0.2
 
-**Why it matters:** Proves the concept. Shows colleagues what we're building.
+**Schema-driven extraction with manual data entry.**
 
----
-
-## v0.2: Dynamic data loading
-**What it adds:** Load any article's extraction data from a JSON file.
-- Move hardcoded article data into a JSON structure
-- Build an article switcher (Previous / Next buttons)
-- Load the correct data when switching articles
-- Track "reviewed" vs "unreviewed" status per article
-
-**Skills needed:** JavaScript fundamentals (reading JSON, updating the DOM)
+What's working right now:
+- Schema switcher (toggle between review types)
+- Dynamic form rendering (dropdowns, text fields, checkboxes, toggles, dates)
+- Article creation, navigation, and deletion
+- Paste Import (get metadata from Claude as JSON, paste it in)
+- JSON export (single article or full dataset)
+- Sidebar filters (filter articles by coded fields)
+- Analytic memo panel (dedicated space for researcher notes)
+- Auto-save to browser storage (with Live Server)
+- Two public templates: Scoping Review and Rodgers' Concept Analysis
 
 ---
 
-## v0.3: React rebuild
-**What it adds:** Proper state management and reusable components.
-- Rebuild the extraction form as React components
-- Each field type (coded dropdown, free text, numeric) as its own component
-- Global state tracking: which fields changed, which are flagged, which are reviewed
-- Article list sidebar with progress indicators
+## Next Up: v0.3 — Excel/CSV Export
 
-**Skills needed:** React basics (components, state, props)
+**Goal:** Export your extractions as a spreadsheet you can open in Excel or Google Sheets.
+
+Why this matters: most review teams need to share data with collaborators who work in spreadsheets. Right now you can export JSON (which is great for data portability) but most people want an .xlsx or .csv file with one row per article and one column per field.
 
 ---
 
-## v0.4: PDF viewer
-**What it adds:** Real PDF rendering in the right panel.
-- PDF.js integration for displaying uploaded PDFs
-- Page navigation (previous/next/jump to page)
-- Text layer for copy/paste and highlighting
-- Click-to-highlight: click a field on the left to jump to its source in the PDF
+## v0.4 — PDF Viewer
 
-**Skills needed:** PDF.js library, coordinate mapping
+**Goal:** Read articles side-by-side with the extraction form.
 
----
+This is the big one. Instead of switching between your PDF reader and ReviewForge, you'll see the article on the right and the extraction form on the left. Click on a field, and the PDF highlights the relevant passage.
 
-## v0.5: AI extraction pipeline
-**What it adds:** First-pass AI extraction from uploaded PDFs.
-- Upload a PDF and get a structured extraction back
-- System prompt built from your Code Book and extraction instructions
-- Confidence scoring per field (based on AI's certainty)
-- Known weakness handling (auto-flag domains, primary outcome, IAP method)
-- Side-by-side comparison: AI extraction vs empty form for human review
-
-**Skills needed:** Claude API, Node.js backend, prompt engineering
+This is where ReviewForge becomes a genuine alternative to expensive proprietary tools.
 
 ---
 
-## v0.6: Batch processing
-**What it adds:** Process multiple articles at once.
-- Upload a batch of PDFs
-- Queue them for AI extraction
-- Review queue: work through extractions one at a time
-- Progress dashboard: X of Y articles extracted, reviewed, approved
-- Export to XLSX matching the master extraction spreadsheet format
+## v0.5 — AI Metadata Extraction
 
-**Skills needed:** Backend queuing, file management, XLSX generation
+**Goal:** Upload a PDF and get the metadata fields auto-filled.
+
+Right now the Paste Import workflow requires you to go to Claude, share the PDF, ask for the metadata, copy the JSON, and paste it into ReviewForge. This version brings the AI into the app itself: upload a PDF, the app calls the Claude API, and the metadata fields populate automatically.
+
+Important: AI extraction is for metadata and objective fields only (authors, year, journal, study design, sample size). Interpretive fields (findings, quality assessment, analytic notes) remain human-only. This is a design principle, not a limitation.
 
 ---
 
-## v1.0: Production ready
-**What it adds:** Everything needed to use this for a real systematic review.
-- Database storage (SQLite initially, PostgreSQL for multi-user)
-- Audit trail (every change tracked with timestamp and reviewer)
+## v0.6 — Batch Processing
+
+**Goal:** Process multiple articles at once.
+
+Upload a batch of PDFs, queue them for AI metadata extraction, and work through the review queue one article at a time. A progress dashboard shows how many articles are extracted, reviewed, and complete.
+
+---
+
+## v1.0 — Production Ready
+
+**Goal:** Everything needed for a real multi-reviewer project.
+
+- Database storage (instead of browser localStorage)
+- Audit trail (every change tracked with timestamp and reviewer name)
 - Multi-reviewer support (assign articles, track who extracted what)
-- Code Book editor (modify dropdown values, add new lists)
-- PRISMA flow diagram auto-generation from screening data
-- Export formats: XLSX, CSV, GRADE evidence tables
+- PRISMA flow diagram auto-generation
+- Export in multiple formats (XLSX, CSV, GRADE evidence tables)
 
 ---
 
-## Future possibilities
-- **Template system:** Create extraction schemas for different review types (not just WSACS)
-- **Calibration mode:** Compare AI vs human extraction to measure and improve AI accuracy over time
-- **Freelance tool:** Package ReviewForge as part of your systematic review remediation service
-- **Open source:** Release the tool for the research community (with your name on it)
+## Community Templates
+
+The schema-driven architecture means anyone can create a template for their review type. Here's what's available and what's planned:
+
+### Available Now
+- Scoping Review (Arksey & O'Malley / JBI)
+- Rodgers' Evolutionary Concept Analysis
+
+### Planned
+- Systematic Review (PRISMA)
+- JBI Scoping Review
+- Integrative Review
+- Rapid Review
+- Walker & Avant Concept Analysis
+- Narrative / Critical Review
+- JBI Evidence Synthesis
+- Realist Review
+
+### Want to Contribute a Template?
+
+If you've created a schema for your review type and want to share it, submit a pull request or open an Issue on GitHub with your JSON schema. We'll review it and add it to the public templates.
+
+Templates should include:
+- Clear field labels and help text
+- Coded dropdowns with sensible default options
+- A method reference (citation for the review methodology)
+- Enough fields to be useful, not so many that it's overwhelming
 
 ---
 
-## What makes ReviewForge different from Sentinel's tool
+## Philosophy
 
-1. **Built by a methodologist, not a dev team.** The extraction logic isn't an afterthought bolted onto a PDF viewer. It IS the product.
+ReviewForge is built on three principles:
 
-2. **Code Book-first architecture.** Every coded field validates against the actual Code Book. The schema is the source of truth, not a suggestion.
+1. **The researcher is the instrument.** AI can do data entry. Humans do analysis. The tool supports both but never confuses them.
 
-3. **Known weakness handling.** The AI flags fields it's historically bad at (domains, primary outcomes, treatment arm interpretation) BEFORE the reviewer sees them. This comes directly from your validation report.
+2. **Your data is yours.** Everything runs locally. No cloud accounts, no data sharing, no vendor lock-in. Export your work in open formats anytime.
 
-4. **Transparent QA.** The three-tier validation model (Tier 1: numerical accuracy, Tier 2: categorical codes, Tier 3: free-text fidelity) is built into the workflow, not a separate step.
-
-5. **You own it.** Your intellectual property stays yours. No training someone else's AI with your methodological framework so they can sell it back to you.
+3. **Your expertise is yours.** The schema-driven architecture means your extraction framework, your Code Book, your analytical lens stays on your machine unless you choose to share it. Nobody gets to monetise your methodology without your consent.
