@@ -16,3 +16,8 @@ package-lock.json
 # Personal extraction data (never commit research data!)
 extraction_*.json
 exports/
+
+# Private schemas (your intellectual property - stays local)
+schemas-private.js
+codebook/wsacs-fields.json
+codebook/rodgers-fields.json

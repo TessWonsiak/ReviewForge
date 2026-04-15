@@ -70,16 +70,7 @@
                     <h2>Welcome to ReviewForge</h2>
                     <p>Select a review type from the dropdown above to get started,<br>
                     or create a new article to begin extracting.</p>
-                    <div class="welcome-schemas">
-                        <div class="welcome-card" data-schema="wsacs">
-                            <h3>WSACS Systematic Review</h3>
-                            <p>57-column extraction for IAH/ACS clinical practice guidelines. GRADE methodology.</p>
-                        </div>
-                        <div class="welcome-card" data-schema="rodgers">
-                            <h3>Rodgers' Concept Analysis</h3>
-                            <p>Mental suffering in the context of MAiD. Evolutionary concept analysis method.</p>
-                        </div>
-                    </div>
+                    <p style="font-size: 13px; color: #86868b;">Create your own schemas by adding a JSON file to the codebook/ folder<br>and defining it in schemas.js. See the README for instructions.</p>
                 </div>
             </div>
             <div id="form-container" class="form-container" style="display: none;"></div>
@@ -99,8 +90,11 @@
         <span id="save-indicator"></span>
     </footer>
 
-    <!-- Scripts: schemas first, then app logic, then import feature -->
+    <!-- Public schemas (ships with ReviewForge) -->
     <script src="schemas.js"></script>
+    <!-- Private schemas (your IP, not pushed to GitHub. Delete this line if you don't have one) -->
+    <script src="schemas-private.js" onerror="console.log('No private schemas found. This is normal for public installs.')"></script>
+    <!-- App logic -->
     <script src="app.js"></script>
     <script src="import.js"></script>
 </body>
